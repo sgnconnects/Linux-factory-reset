@@ -34,10 +34,10 @@ scripts used in factory reset, partition auto clonning
  * Put same stock image on LIVE and FACT. 
      * You can put it on fact only then reboot and hld the gpio down, will replicate itself to P1.
      * LIVE for Beaglebone would be P1 and for iMX P2
-     * FACY for Beaglebone would be P2 and for iMX P3
+     * FACT for Beaglebone would be P2 and for iMX P3
  * Configure the clonning script so it exist when image boots from LIVE (P1-am335 P2-iMX6ull)
- * Enable the service on both. Make it to call the clonning script.
- 
+ * Enable the service on both or on factory only. Make it to call the clonning script.
+ * Test it
  
  
 
@@ -47,6 +47,8 @@ scripts used in factory reset, partition auto clonning
  
  * imx5 u-boot chnages patch to boot from P3 when GPIO 120 is Down. 
         * By default  is down so it has to be pulled up to boot from P2
+        * It also boots to factory if a file in /P1  called bootfact exists.
+    
 
 #### am335 (beaglebone) The emmc is partitionned [50M free] P1-root-live P2-facr p3-data
  * the u-boot patch has also the am335 patches but look for MCO_*. That makes BBB to boot from P2 when GPIO 48 os LOW 
