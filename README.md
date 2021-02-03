@@ -6,7 +6,7 @@ scripts used in factory reset, partition auto clonning
  * Image is corrupted, reset-to-factory it and recover it.
  
 ##### Quick sollution for small images
- * Identical images on 2 partitions. WHen second boot;s on it replicates to first. 
+ * Identical images on 2 partitions. When system boots frmo seconds partition it replicates itself (This is what is coverred in thei GIT). 
 
 ##### Alternative for larger image that wont fit on both partitions
  
