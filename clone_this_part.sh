@@ -3,8 +3,8 @@
 # Copyright (C) [2021] by [O. Marius C.] / CircinusX1@github
 #
 ########################################################################
-
-BLK=/dev/mmcblk0 # k0 Sdcard on BBB k1 eMMC
+BLK=/dev/mmcblk1 # k0=SDcard on BBB k1 eMMC configured to clone P2 to P1 (am335)
+		 # configure sccordingly to your partitions		
 FACT=p2   # this partition, call ir factory because is used in
           # restoring primary partition p1(rootfs / live) from p2(fact)
           # system boots here when a GPIO is pressed.  
