@@ -1,0 +1,9 @@
+# factory reset
+[Unit]
+Description=factory reset
+
+[Service]
+Type=simple
+ExecStart=/path-to/clonning_script.sh
+[Install]
+WantedBy=multi-user.target
