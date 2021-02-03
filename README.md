@@ -1,14 +1,33 @@
 # Linux-factory-reset
 scripts used in factory reset, partition auto clonning
 
-How:
- * Make u-boot chnages. The chnages makes u-boot to boot from second partiton than the default one
+##### Why
+ * Have the device loose all user data by resetting it to known good factory image
+ * Image is corrupted, reset-to-factory it and recover it.
+ 
+##### Quick sollution for small images
+ * Identical images on 2 partitions. WHen second boot;s on it replicates to first. 
+
+##### Alternative for larger image that wont fit on both partitions
+ 
+ * You can have in second partiton a minimal linux 80K like th eone here: https://github.com/circinusX1/minimarmfs 
+ * Have the rootfs tar.gz-ed
+ * Chnage the installation script to untar, instead of sync like:
+ 
+     tar  --checkpoint=.1024 --checkpoint-action=exec=/bin/sync  --warning=no-timestamp -xhpf ${TARFILE} -C ${FACT_D}/
+
+
+##### How:
+ * By holoding a GPIO down for 10 seconds after Reset or on Power On it initiates a factory reset.
+ 
+ * Make u-boot changes. The chnages makes u-boot to boot from second partiton than the default one
      * I did it for iMX6 and Beaglebone.
      * iMX6 would boot from <block_device>p3 instead <block_device>p2 when GPIO 120 is LOW. 
          * (default is down, pull it up with a resistor)
      * am335 would boot from <block_device>p2 instead <block_device>p1 when GPIO 48 is LOW
  * Partition the Sdcard or eMMC with the partitioning script.
-     * Will create an extra partittion on remainig space (give it by configuration) for /var/log and /usr/share tp repserver the root/live partition from to many writes so it can stay healthly longer
+     * Will create an extra partittion on remainig space (give some 500M by configuration) for /var/log and /usr/share 
+         * Will reduce writes to  / and peserve it in case of accidental power intrerruptions
      * Edit and make changes according to your eMMC size and Linux image size. 
      * Tweak the % so the image would fit in P1 and P2, respectevily P3
  * Put same stock image on LIVE and FACT.  
@@ -16,6 +35,8 @@ How:
      * FACY for Beaglebone would be P2 and for iMX P3
  * Configure the clonning script so it exist when image boots from LIVE (P1-am335 P2-iMX6ull)
  * Enable the service on both. Make it to call the clonning script.
+ 
+ 
  
 
 
