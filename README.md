@@ -10,7 +10,7 @@ scripts used in factory reset, partition auto clonning
 
 ##### Alternative for larger image that wont fit on both partitions
  
- * You can have in second partiton a minimal linux 80K like th eone here: https://github.com/circinusX1/minimarmfs 
+ * You can have in second partiton a minimal linux ~200M like the one here: https://github.com/circinusX1/minimarmfs 
  * Have the rootfs tar.gz-ed
  * Change the installation script to untar, instead of sync like:
  
