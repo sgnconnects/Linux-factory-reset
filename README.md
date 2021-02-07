@@ -51,7 +51,7 @@ scripts used in factory reset, partition auto clonning
     
 
 #### am335 (beaglebone) The emmc is partitionned [50M free] P1-root-live P2-facr p3-data
- * the u-boot patch has also the am335 patches but look for MCO_*. That makes BBB to boot from P2 when GPIO 48 os LOW 
+ * the u-boot patch has also the am335 patches but look for MCO_*. That makes BBB to boot from P2 when GPIO 48 is LOW 
      
     
    
