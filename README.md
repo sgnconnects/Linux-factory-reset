@@ -2,7 +2,7 @@
 scripts used in factory reset, partition auto clonning
 
 ##### Why
- * Have the device loose all user data by resetting it to known good factory image
+ * Have the device reset to a known good factory image
  * Image is corrupted, reset-to-factory it and recover it.
  
 ##### Quick sollution for small images
